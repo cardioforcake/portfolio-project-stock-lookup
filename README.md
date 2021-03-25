@@ -23,3 +23,4 @@
 
 - Add additional options for the time interval charted on the graph
 - Add a modal popup to display additional details for the stock selected such as financial ratios
+- Allow users to search by company name and update the name of the dataset on the chart from the ticker symbol to the company name
