@@ -113,7 +113,7 @@ input[type=sumit]{
     width: 180px;
     height: 80px;
     background-color: darkslateblue;
-    z-index: 1;
+    z-index: 2;
     border-radius: 1px;
     color: white;
     display: grid;
@@ -158,10 +158,13 @@ input[type=sumit]{
     margin: 0 auto;
     /* background-color: mintcream; */
     border-radius: 5px;
-    grid-row-start: 4;
+    grid-column: span 1;
+    grid-row-start: 3;
+    grid-column-start: 1;
     padding-bottom: 15px;
     display: flex;
     justify-content: center;
+    z-index: 1;
 }
 
 .graph{
