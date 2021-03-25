@@ -64,10 +64,11 @@ $('.last').click(function(){
                 xLabels = xLabels.slice(0,-1)
                 yLabels = yLabels.slice(0,-1)
         
-                let minimum = Math.min.apply(Math, yScale)
-        
-                imgUrl = 'https://quickchart.io/chart?c={type:%27line%27,data:{labels:['+xLabels+'],datasets:[{label:%27'+stock+'%27,data:['+yLabels+']}]}}&backgroundColor=%23f5fffa'
-        
+                let minimum = Math.floor(Math.min.apply(Math, yScale))-Math.ceil(Math.min.apply(Math, yScale)*0.05)
+                let maximum = Math.ceil(Math.max.apply(Math, yScale))+Math.ceil(Math.max.apply(Math, yScale)*0.05)
+    
+                imgUrl = 'https://quickchart.io/chart?c={type:%27line%27,data:{labels:['+xLabels+'],datasets:[{label:%27'+stock+'%27,data:['+yLabels+']}]},options: { scales: { yAxes: [{ ticks: { min: '+minimum+', max: '+maximum+' } }] } }}&backgroundColor=%23f5fffa'
+    
                 $('.graph').attr('src',imgUrl)
                 $('.display').removeClass('hide')
                 if($('.menu').hasClass('canTouch')){
@@ -168,14 +169,14 @@ function display(ev){
             xLabels = xLabels.slice(0,-1)
             yLabels = yLabels.slice(0,-1)
 
-            let minimum = Math.min.apply(Math, yScale)
+            let minimum = Math.floor(Math.min.apply(Math, yScale))-Math.ceil(Math.min.apply(Math, yScale)*0.05)
+            let maximum = Math.ceil(Math.max.apply(Math, yScale))+Math.ceil(Math.max.apply(Math, yScale)*0.05)
 
-            imgUrl = 'https://quickchart.io/chart?c={type:%27line%27,data:{labels:['+xLabels+'],datasets:[{label:%27'+stock+'%27,data:['+yLabels+']}]}}&backgroundColor=%23f5fffa'
+            imgUrl = 'https://quickchart.io/chart?c={type:%27line%27,data:{labels:['+xLabels+'],datasets:[{label:%27'+stock+'%27,data:['+yLabels+']}]},options: { scales: { yAxes: [{ ticks: { min: '+minimum+', max: '+maximum+' } }] } }}&backgroundColor=%23f5fffa'
 
             $('.graph').attr('src',imgUrl)
             $('.display').removeClass('hide')
 
-            console.log(imgUrl)
         },
         function(){
             alert('Ticker symbol not found')
