@@ -10,6 +10,8 @@
 - HTML
 - CSS
 - Javascript (using jQuery)
+- financial API: https://www.alphavantage.co/
+- graph/chart maker API: https://quickchart.io/
 
 ### Screenshot:
 
